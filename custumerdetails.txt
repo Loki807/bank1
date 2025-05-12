@@ -2,3 +2,8 @@
 {'020022224443': {'last namebala', 'addresssunnakam', 'first namekannan', 'password231', 'contact number0767676654', 'balance0.0', 'nic number20020989876'}}
 {'020081112223': {'addresskondavil', 'balance0.0', 'contact number0767643234', 'last namesounthar', 'first namedenesan', 'nic number20079877656', 'password2312'}}
 {'000001234568': {'first name': 'vaki', 'last name': 'muki', 'password': '1', 'nic number': '1', 'address': 'vaddakatchchi', 'contact number': '07676435', 'balance': 0.0}}
+{'000001238011': {'first name': 'lova', 'last name': 'lid', 'password': '234', 'nic number': '3444', 'address': 'vaddukoddai', 'contact number': '983877372', 'balance': 0.0}}
+{'000001257911': {'first name': 'loki', 'last name': '233', 'password': '233', 'nic number': '23344', 'address': 'ko', 'contact number': '34235', 'balance': 0.0}}
+{'000001234570': {'first name': '', 'last name': 'e', 'password': 'e', 'nic number': '3', 'address': '3', 'contact number': '3', 'balance': 0.0}}
+{'000001234569': {'first name': '2', 'last name': '2', 'password': '', 'nic number': '2', 'address': '2', 'contact number': '2', 'balance': 0.0}}
+{'000001234569': {'first name': '2', 'last name': '', 'password': '2', 'nic number': '2', 'address': '2', 'contact number': '', 'balance': 0.0}}

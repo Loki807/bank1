@@ -1,4 +1,4 @@
-
+balance=0.0
 # DEPOSIT MONEY==================================================================================================================
 def deposit_money():
 
@@ -141,65 +141,60 @@ def bank():
                         print("❌ Invalid admin credentials.")
 
                 elif choice==2:
+                            
                         entered_account = input("Enter your account number: ")
                         entered_password = input("Enter your password: ")
 
-                        if entered_account in users_data and   entered_password==users_data[entered_account]['password'] :
-                                print(f"✅ Login successful. Welcome {users_data[entered_account]['First_name']} {users_data[entered_account]['Last_name']}!")
-                                try:
-                                        with open('custumerdetails.txt', 'r') as file:
-                                                    lines = file.readlines()
-                                                    for line in lines:
-                                                        if entered_account in line:
-                                                            parts = line.strip().split('→')
-                                                            account = parts[0].replace("Account Number:", "").strip()
-                                                            user_info = parts[1].split(',')
+                        if entered_account in users_data and entered_password == users_data[entered_account]['password']:
+                                print(f"✅ Login successful. Welcome {users_data[entered_account]['first name']} {users_data[entered_account]['last name']}!")
 
-                                                            if user_info[2] == entered_password:
-                                                                print(f"✅ Login successful. Welcome, {user_info[0]} {user_info[1]}!")
-                                                                
-                                                                
-                                                                while True:
-                                                                    print("\n----- User Menu -----")
-                                                                    print("1. Deposit Money")
-                                                                    print("2. Withdraw Money")
-                                                                    print("3. Logout")
-                                                                    option = input("Choose an option (1/2/3): ")
+                                while True:
+                                    print("\n----- User Menu -----")
+                                    print("1. Deposit Money")
+                                    print("2. Withdraw Money")
+                                    print("3. Logout")
+                                    option = input("Choose an option (1/2/3): ")
 
-                                                                    if option == '1':
-                                                                        deposit_money()
-                                                                    elif option == '2':
-                                                                        withdraw_money()
-                                                                    elif option == '3':
-                                                                        print("👋 Logged out.")
-                                                                        break
-                                                                    else:
-                                                                        print("❌ Invalid option. Try again.")
-                                                                break
-                                                            else:
-                                                                print("❌ Incorrect password.")
-                                                                break
-                                                    else:
-                                                        print("❌ Account not found.")
-                                except  FileNotFoundError:
-                                                    print("❌ No user data found. Please sign up first.")
-
-            
-
-
-                                   
+                                    if option == '1':
+                                        deposit_money()
+                                    elif option == '2':
+                                        withdraw_money()
+                                    elif option == '3':
+                                        print("👋 Logged out.")
+                                        break
+                                    else:
+                                        print("❌ Invalid option. Try again.")
                         else:
                                 print("❌ Wrong account number or password.")
+                        
+
+                                   
+                        
                                             
                 elif choice==3:
                     users_data = userinfo()
-                    get_userinformation(users_data)
+                    get_userinformation()
+                    while True:
+                                    print("\n----- User Menu -----")
+                                    print("1. Deposit Money")
+                                    print("2. Withdraw Money")
+                                    print("3. Logout")
+                                    option = input("Choose an option (1/2/3): ")
 
+                                    if option == '1':
+                                        deposit_money()
+                                    elif option == '2':
+                                        withdraw_money()
+                                    elif option == '3':
+                                        print("👋 Logged out.")
+                                        break
+                                    else:
+                                        print("❌ Invalid option. Try again.")
     
-                else:
+                elif choice==4:
                     print('welcome ')  
                     break 
 load_users()                  
 bank()      
      
-print(users_data)
+
