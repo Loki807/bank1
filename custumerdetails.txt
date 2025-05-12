@@ -1,1 +1,4 @@
-{'000003328415': ['lokiraj', '23', '20012', '2093848', 'kokuvil', '0769885']}
+{'200110035869': {'addresskokuvil', 'balance0.0', 'nic number200108801302', 'first namelokiraj', 'contact number0767475783', 'last namesanthan', 'password2001024'}}
+{'020022224443': {'last namebala', 'addresssunnakam', 'first namekannan', 'password231', 'contact number0767676654', 'balance0.0', 'nic number20020989876'}}
+{'020081112223': {'addresskondavil', 'balance0.0', 'contact number0767643234', 'last namesounthar', 'first namedenesan', 'nic number20079877656', 'password2312'}}
+{'000001234568': {'first name': 'vaki', 'last name': 'muki', 'password': '1', 'nic number': '1', 'address': 'vaddakatchchi', 'contact number': '07676435', 'balance': 0.0}}
