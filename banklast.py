@@ -47,12 +47,18 @@ def userinfo():
     Last_name = input('Enter your last name: ')
     Password = input('Enter your password: ')
     Nic_number = input('Enter your IC number: ')
+    for acc_number in users_data:
+        if users_data[acc_number]["nic number"] == Nic_number:
+            print("❌ This account already exists. Please try to sign in instead.")
+            return None     
+
+
     Address = input('Enter your address: ')
     Contact_number = input('enter your phone number')
     Account_number = (f'{int(Nic_number) + 1234567}'.zfill(12))
     balance = 0.0
     return {
-        f"{Account_number}": {
+        f"{account_number}": {
             f"first name": First_name,
             f"last name": Last_name,
             f"password": Password,
@@ -67,13 +73,15 @@ def userinfo():
 def get_userinformation():
     global users_data
     new_user = userinfo()
+    if new_user is None:
+        return  
     users_data.update(new_user)
 
     with open('custumerdetails.txt', 'a') as custumerdetails:
         custumerdetails.write(f'{new_user}\n')
 
     Account_number = list(new_user.keys())[0]
-    print(f'your account number is {Account_number}.')
+    print(f'your account number is {account_number}.')
 
 # LOAD USERS FROM FILE ===========================================================================================================
 def load_users():
@@ -106,6 +114,14 @@ def transaction_history():
                 print("📂 No transaction history found.")
     except FileNotFoundError:
         print("❌ Transaction history file not found.")
+#CHECK BALANCE =============================================================================================================================================================
+def check_balance(account_number):
+    global users_data
+    try:
+        balance = users_data[account_number]["balance"]
+        print(f"💰 Your current balance is: ${balance:.2f}")
+    except KeyError:
+        print("❌ Account not found.")
 # START ==========================================================================================================================
 def bank():
     global users_data
@@ -132,6 +148,7 @@ def bank():
                 choice = int(input('enter your choice sir /medam :1/2'))
                 if choice == 1:
                     get_userinformation()
+                    
 
                 elif choice == 2:
                     try:
@@ -157,8 +174,9 @@ def bank():
                     print("1. Deposit Money")
                     print("2. Withdraw Money")
                     print("3.transaction history")
-                    print("4.. Logout")
-                    option = input("Choose an option (1/2/3): ")
+                    print("4.check balance")
+                    print("5. Logout")
+                    option = input("Choose an option (1/2/3/4/5): ")
 
                     if option == '1':
                         deposit_money(entered_account)
@@ -166,7 +184,9 @@ def bank():
                         withdraw_money(entered_account)
                     elif option=='3': 
                         transaction_history()
-                    elif option == '4':
+                    elif option=='4':
+                        check_balance(entered_account)   
+                    elif option == '5':
                         print("👋 Logged out.")
                         break
                     else:
@@ -178,25 +198,8 @@ def bank():
             get_userinformation()
             new_account = list(users_data.keys())[-1]
 
-            while True:
-                print("\n----- User Menu -----")
-                print("1. Deposit Money")
-                print("2. Withdraw Money")
-                print("3. Logout")
-                option = input("Choose an option (1/2/3): ")
-
-                if option == '1':
-                    deposit_money(new_account)
-                elif option == '2':
-                    withdraw_money(new_account)
-                elif option == '3':
-                    print("👋 Logged out.")
-                    break
-                else:
-                    print("❌ Invalid option. Try again.")
-
         elif choice == 4:
-            print('welcome ')
+            print('log out')
             break
 
 load_users()
